@@ -2,6 +2,18 @@
   background-color: lightblue;
 }
 
-.gallery-container {
-  /* TODO add styles (hint: use flex!) https://www.w3schools.com/cssref/ */
+.gallery-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-item {
+  width: 200px;
+  margin: 0 auto;
+}
+
+img:hover {
+  transform: scale(1.1);
+  border: red 2px solid;
 }

@@ -12,7 +12,7 @@ const apiRequest = async () => {
    */
 
   // TODO fill in your own port number 
-  const PORT_NUMBER = "";
+  const PORT_NUMBER = "8010";
 
   const baseUrl = `http://localhost:${PORT_NUMBER}/proxy/api/`
 
@@ -29,7 +29,7 @@ const apiRequest = async () => {
     }
   });
 
-  // console.log(response);
+  console.log(response);
 
   // Return the response in JSON format
   return response.json();
@@ -40,14 +40,23 @@ const updatePage = async () => {
 
   // Make API request and get an array of fruit objects
   const fruitsArray = await apiRequest();
-  // console.log(fruitsArray);
+  console.log(fruitsArray);
 
   // TODO: Use either `map` and/or `filter` to extract some data from the array of fruit objects
-  // For example, find "name of all fruits whose sugar > 15", 
+  // For example, find "name of all fruits whose sugar > 15",
+  
+  const filteredFruits = fruitsArray.filter(fruit => fruit.nutritions.sugar > 15);
+  const filteredFruitsNames = filteredFruits.map(fruit => fruit.name);
+  console.log(filteredFruitsNames, "filteredFruitsNames");
 
   // TODO: Create a new HTML element to display your data 
 
+  let newDiv = document.createElement("div");
+  newDiv.innerHTML = filteredFruitsNames;
+
   // TODO: Append your new element to the page
+
+  gallery.append(newDiv);
 
 }
 
